@@ -1,0 +1,52 @@
+<form class="form-inline" [(ngModel)]="numPeople">
+  <label>How mnay people were in your party?</label>
+  <input type="number" class="form-control">
+</form>
+
+<h3>How many people were in your party?</h3>
+<button class="btn" (click)="open()">Open!</button>
+<table class="table table-striped">
+  <thead>
+    <th>Who Paid?</th>
+    <th>Item</th>
+    <th>Price</th>
+    <th *ngFor="let user of userArray">
+      {{user}}
+    </th>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Phong</td>
+      <td>Item1</td>
+      <td>$5</td>
+      <td *ngFor="let user of userArray">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Taylor</td>
+      <td>Item</td>
+      <td>Price</td>
+      <td *ngFor="let user of userArray">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Steve</td>
+      <td>Item</td>
+      <td>Price</td>
+      <td *ngFor="let user of userArray">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="">
+        </div>
+      </td>
+    </tr>
+
+    <button class="btn btn-primary" (click)="addNewRow()">Add New Payment</button>
+  </tbody>
+</table>
