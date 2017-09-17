@@ -1,8 +1,3 @@
-<form class="form-inline" [(ngModel)]="numPeople">
-  <label>How mnay people were in your party?</label>
-  <input type="number" class="form-control">
-</form>
-
 <h3>How many people were in your party?</h3>
 <button class="btn" (click)="open()">Open!</button>
 <table class="table table-striped">
@@ -47,6 +42,6 @@
       </td>
     </tr>
 
-    <button class="btn btn-primary" (click)="addNewRow()">Add New Payment</button>
+    <button class="btn btn-primary" (click)="openAddPaymentRowModal()">Add New Payment</button>
   </tbody>
 </table>

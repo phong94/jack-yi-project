@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { MainTableComponent } from './main-table/main-table.component';
 import { UsersModal } from './users-modal/users-modal.component';
+import { PaymentModal } from './payment-modal/payment-modal.component';
 
 import { UserService } from './services/user.service';
 
@@ -14,7 +15,8 @@ import { UserService } from './services/user.service';
   declarations: [
     AppComponent,
     MainTableComponent,
-    UsersModal
+    UsersModal,
+    PaymentModal
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,6 @@ import { UserService } from './services/user.service';
   ],
   providers: [UserService],
   bootstrap: [AppComponent],
-  entryComponents: [UsersModal]
+  entryComponents: [UsersModal, PaymentModal]
 })
 export class AppModule { }
