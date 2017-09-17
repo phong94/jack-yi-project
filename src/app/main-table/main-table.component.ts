@@ -19,24 +19,28 @@ export class MainTableComponent implements OnInit {
   @Input() userArray: string[] = [];
   @Input() paymentArray: PaymentInfo[] = [];
 
+  // Auto populate properties for table on load to make the page look nice
+  emptyTableRows = [1,2,3,4,5];
+  rowsAreEmpty: boolean = true;
+
   ngOnInit() {
     this.userService.userArray.subscribe(
       (response) => this.userArray = response
     );
 
     this.userService.paymentArray.subscribe(
-      (response) => this.paymentArray = response
+      (response) => {
+        this.paymentArray = response;
+        this.rowsAreEmpty = false;
+      }
     )
   }
 
   open() {
     const modalRef = this.modalService.open(UsersModal, {size: "lg"});
-    //modalRef.componentInstance.name = 'World';
-    //console.log(this.numPeople);
   }
 
   openAddPaymentRowModal() {
-    console.log("TEST");
     const modalRef = this.modalService.open(PaymentModal, {size: "lg"});
   }
 
