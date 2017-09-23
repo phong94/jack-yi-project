@@ -11,9 +11,9 @@
             <div class="col-md-6">
                 <h4>Add Info</h4>
                 <form #f="ngForm" (ngSubmit)="addNewPaymentRow(f)">
-                    <input class="form-control" name="payer" placeholder="Who Paid?" ngModel>
-                    <input class="form-control" name="item" placeholder="Item" ngModel>
-                    <input class="form-control" name="price" placeholder="Price" ngModel>
+                    <input class="form-control" name="payer" placeholder="Who Paid?" [(ngModel)]="payer">
+                    <input class="form-control" name="item" placeholder="Item" [(ngModel)]="item">
+                    <input class="form-control" name="price" placeholder="Price" [(ngModel)]="price">
                     <button class="btn btn-primary" type="submit">Submit</button>
                 </form>
             </div>

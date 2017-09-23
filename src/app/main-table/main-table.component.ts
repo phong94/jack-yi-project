@@ -19,6 +19,8 @@ export class MainTableComponent implements OnInit {
   @Input() userArray: string[] = [];
   @Input() paymentArray: PaymentInfo[] = [];
 
+  checkboxValue: boolean = true;
+
   // Auto populate properties for table on load to make the page look nice
   emptyTableRows = [1,2,3,4,5];
   rowsAreEmpty: boolean = true;
@@ -36,12 +38,30 @@ export class MainTableComponent implements OnInit {
     )
   }
 
-  open() {
+  openAddUsersModal() {
     const modalRef = this.modalService.open(UsersModal, {size: "lg"});
   }
 
   openAddPaymentRowModal() {
     const modalRef = this.modalService.open(PaymentModal, {size: "lg"});
+  }
+
+  calculateCosts() {
+    console.log("payment array:", this.paymentArray);
+    console.log("users array:", this.userArray);
+  }
+
+  addUser(user, payer) {
+    //console.log(user);
+    //console.log(payer);
+
+    // Loop through the payment array and add payees to each user
+    for (let item in this.paymentArray) {
+      if (this.paymentArray[item].payer === payer) {
+        this.paymentArray[item].payees.push(user);
+      }
+    }
+    console.log(this.paymentArray);
   }
 
 }

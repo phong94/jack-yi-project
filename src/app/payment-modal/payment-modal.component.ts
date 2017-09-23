@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 
 import { UserService } from '../services/user.service';
 import { PaymentInfo } from '../models/paymentinfo';
+import { Payee } from '../models/payee';
 
 @Component({
     selector: 'app-payment-modal',
@@ -23,7 +24,11 @@ export class PaymentModal implements OnInit {
     ngOnInit() {}
 
     addNewPaymentRow(f: NgForm) {
-        let p = new PaymentInfo(f.value.payer, f.value.item, f.value.price);
+        let payeeArray: Payee[] = [];
+        let p = new PaymentInfo(f.value.payer, f.value.item, f.value.price, payeeArray);
+        this.payer = '';
+        this.item = '';
+        this.price = null;
         this.paymentArray.push(p);
         this.userService.paymentArray.emit(this.paymentArray);
     }

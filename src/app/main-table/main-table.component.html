@@ -1,5 +1,7 @@
 <h3>How many people were in your party?</h3>
-<button class="btn" (click)="open()">Open!</button>
+<button class="btn" (click)="openAddUsersModal()">Add Users!</button>
+<button class="btn btn-primary" (click)="openAddPaymentRowModal()">Add New Payment</button>
+<button class="btn btn-danger" (click)="calculateCosts()">Calculate Costs</button>
 <table class="table table-striped">
   <thead>
     <th>Who Paid?</th>
@@ -28,45 +30,13 @@
       <td>{{paymentInfo.payer}}</td>
       <td>{{paymentInfo.item}}</td>
       <td>{{paymentInfo.price}}</td>
-      <td *ngFor="let user of userArray">
+      <td *ngFor="let user of userArray; let i = index;">
         <div class="form-check">
-            <input class="form-check-input" style="vertical-align:middle;" type="checkbox" value="">
+            <input class="form-check-input" style="vertical-align:middle;" type="checkbox" value={{user}} 
+              (change)="addUser(user, paymentInfo.payer)">
         </div>
       </td>
     </tr>
   </tbody>
-  <!-- <tbody>
-    <tr>
-      <td>Phong</td>
-      <td>Item1</td>
-      <td>$5</td>
-      <td *ngFor="let user of userArray">
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="">
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Taylor</td>
-      <td>Item</td>
-      <td>Price</td>
-      <td *ngFor="let user of userArray">
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="">
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Steve</td>
-      <td>Item</td>
-      <td>Price</td>
-      <td *ngFor="let user of userArray">
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="">
-        </div>
-      </td>
-    </tr> -->
-
-    <button class="btn btn-primary" (click)="openAddPaymentRowModal()">Add New Payment</button>
-  <!-- </tbody> -->
+    
 </table>
