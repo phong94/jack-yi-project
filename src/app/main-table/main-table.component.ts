@@ -6,6 +6,7 @@ import { PaymentModal } from '../payment-modal/payment-modal.component';
 import { UserService } from '../services/user.service';
 
 import { PaymentInfo } from '../models/paymentinfo';
+import { DebtorInfo } from '../models/debtorinfo'; 
 
 @Component({
   selector: 'app-main-table',
@@ -18,6 +19,8 @@ export class MainTableComponent implements OnInit {
   
   @Input() userArray: string[] = [];
   @Input() paymentArray: PaymentInfo[] = [];
+
+  costResult: Map<String, DebtorInfo[]>;
 
   checkboxValue: boolean = true;
 
@@ -48,7 +51,18 @@ export class MainTableComponent implements OnInit {
 
   calculateCosts() {
     console.log("payment array:", this.paymentArray);
-    console.log("users array:", this.userArray);
+    //console.log("users array:", this.userArray);
+    for (let item in this.paymentArray) {
+      console.log(this.paymentArray[item]);
+      let price = this.paymentArray[item].price/5;
+      let debtorInfo: Array<DebtorInfo> = new Array<DebtorInfo>();
+      for (let payee in this.paymentArray[item].payees) {
+        //debtorInfo.push(new DebtorInfo(this.paymentArray[item].payees[payee], this.paymentArray[item].price/this.paymentArray[item].payees.length));
+      }
+      //this.costResult.set(this.paymentArray[item].payer, debtorInfo);
+      
+      console.log(this.paymentArray[0].payees[0].payeeName);
+    }
   }
 
   addUser(user, payer) {
