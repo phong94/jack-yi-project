@@ -33,7 +33,7 @@
       <td *ngFor="let user of userArray; let i = index;">
         <div class="form-check">
             <input class="form-check-input" style="vertical-align:middle;" type="checkbox" value={{user}} 
-              (change)="addUser(user, paymentInfo.payer)">
+              (change)="addUser(user, paymentInfo.payer, paymentInfo.item)">
         </div>
       </td>
     </tr>

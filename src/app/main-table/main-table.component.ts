@@ -20,7 +20,7 @@ export class MainTableComponent implements OnInit {
   @Input() userArray: string[] = [];
   @Input() paymentArray: PaymentInfo[] = [];
 
-  costResult: Map<String, DebtorInfo[]>;
+  costResult: Map<String, DebtorInfo[]> = new Map<String, DebtorInfo[]>();
 
   checkboxValue: boolean = true;
 
@@ -50,32 +50,44 @@ export class MainTableComponent implements OnInit {
   }
 
   calculateCosts() {
-    console.log("payment array:", this.paymentArray);
-    //console.log("users array:", this.userArray);
+    // Loop through the payment array and create the cost result mapping
     for (let item in this.paymentArray) {
-      console.log(this.paymentArray[item]);
-      let price = this.paymentArray[item].price/5;
+
+      let currentPayer = this.paymentArray[item].payer;
+      let currentItem = this.paymentArray[item].item;
       let debtorInfo: Array<DebtorInfo> = new Array<DebtorInfo>();
+
+      // Loop through all the payees in the payment array
       for (let payee in this.paymentArray[item].payees) {
-        //debtorInfo.push(new DebtorInfo(this.paymentArray[item].payees[payee], this.paymentArray[item].price/this.paymentArray[item].payees.length));
+
+        let debtorName = this.paymentArray[item].payees[payee];
+        let totalPrice = this.paymentArray[item].price;
+        let numUsers = this.paymentArray[item].payees.length;
+        console.log("Payees array:", this.paymentArray[item]);
+        // Create an array of debtor info with debtor name and money owed
+        debtorInfo.push(new DebtorInfo(debtorName, totalPrice/numUsers));
       }
-      //this.costResult.set(this.paymentArray[item].payer, debtorInfo);
       
-      console.log(this.paymentArray[0].payees[0].payeeName);
+      // Add each debtorInfo array to the costResult map along with the payer
+      this.costResult.set(currentPayer + "-" + currentItem, debtorInfo);
     }
+
+    console.log(this.costResult);
   }
 
-  addUser(user, payer) {
+  addUser(user, payer, item) {
     //console.log(user);
     //console.log(payer);
 
     // Loop through the payment array and add payees to each user
-    for (let item in this.paymentArray) {
-      if (this.paymentArray[item].payer === payer) {
-        this.paymentArray[item].payees.push(user);
+    for (let paymentInfo in this.paymentArray) {
+      
+      // If payer and item are the same, and the user doesn't already exist in the payees array, push the user
+      if (this.paymentArray[paymentInfo].payer === payer && this.paymentArray[paymentInfo].item === item &&
+          this.paymentArray[paymentInfo].payees.indexOf(user) === -1) {
+        this.paymentArray[paymentInfo].payees.push(user);
       }
     }
-    console.log(this.paymentArray);
   }
 
 }

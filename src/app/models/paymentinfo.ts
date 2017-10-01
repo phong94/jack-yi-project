@@ -5,6 +5,6 @@ export class PaymentInfo {
         public payer: string,
         public item: string,
         public price: number,
-        public payees: Payee[]
+        public payees: string[]
     ) {}
 }

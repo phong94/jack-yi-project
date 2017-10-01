@@ -24,7 +24,7 @@ export class PaymentModal implements OnInit {
     ngOnInit() {}
 
     addNewPaymentRow(f: NgForm) {
-        let payeeArray: Payee[] = [];
+        let payeeArray: string[] = [];
         let p = new PaymentInfo(f.value.payer, f.value.item, f.value.price, payeeArray);
         this.payer = '';
         this.item = '';
