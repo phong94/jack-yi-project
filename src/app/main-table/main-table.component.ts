@@ -21,6 +21,7 @@ export class MainTableComponent implements OnInit {
   @Input() paymentArray: PaymentInfo[] = [];
 
   costResult: Map<String, DebtorInfo[]> = new Map<String, DebtorInfo[]>();
+  finalCostResult: Map<String, DebtorInfo[]> = new Map<String, DebtorInfo[]>();
 
   checkboxValue: boolean = true;
 
@@ -63,7 +64,7 @@ export class MainTableComponent implements OnInit {
         let debtorName = this.paymentArray[item].payees[payee];
         let totalPrice = this.paymentArray[item].price;
         let numUsers = this.paymentArray[item].payees.length;
-        console.log("Payees array:", this.paymentArray[item]);
+        //console.log("Payees array:", this.paymentArray[item]);
         // Create an array of debtor info with debtor name and money owed
         debtorInfo.push(new DebtorInfo(debtorName, totalPrice/numUsers));
       }
@@ -72,7 +73,36 @@ export class MainTableComponent implements OnInit {
       this.costResult.set(currentPayer + "-" + currentItem, debtorInfo);
     }
 
-    console.log(this.costResult);
+    //console.log(this.costResult);
+
+    // Loop through map to reformat so that each payer is a key
+    console.log(this.costResult.entries());
+    let finalDebtorInfo: Array<DebtorInfo> = new Array<DebtorInfo>();
+
+    this.costResult.forEach((value, key) => {
+      let newKey = key.split('-')[0];
+      // If key does not exist, where key is the name of the payer then add the name and the array
+      if (this.finalCostResult.get(key) === undefined) {
+        console.log("undefined:", this.finalCostResult.get(key));
+        this.finalCostResult.set(newKey, value);
+      }
+      else {
+        console.log("in here now");
+        for (let oldDebtorItem in value) {
+          for (let finalDebtorItem in finalDebtorInfo) {
+            console.log("old:", value[oldDebtorItem].debtorName);
+            console.log("new:", finalDebtorInfo[finalDebtorItem].debtorName);
+            if (value[oldDebtorItem].debtorName === finalDebtorInfo[finalDebtorItem].debtorName) {
+              console.log("HELLO WE GOT A MATCH");
+            }
+          }
+        }
+        //this.finalCostResult.set(newKey, )
+      }
+      console.log(key.split('-')[0]);
+    });
+
+    console.log("final:", this.finalCostResult);
   }
 
   addUser(user, payer, item) {
