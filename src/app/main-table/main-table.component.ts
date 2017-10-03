@@ -21,7 +21,7 @@ export class MainTableComponent implements OnInit {
   @Input() paymentArray: PaymentInfo[] = [];
 
   costResult: Map<String, DebtorInfo[]> = new Map<String, DebtorInfo[]>();
-  finalCostResult: Map<String, DebtorInfo[]> = new Map<String, DebtorInfo[]>();
+  finalCostResult: Map<String, DebtorInfo[]>;
 
   checkboxValue: boolean = true;
 
@@ -51,6 +51,7 @@ export class MainTableComponent implements OnInit {
   }
 
   calculateCosts() {
+    this.finalCostResult = new Map<String, DebtorInfo[]>();
     // Loop through the payment array and create the cost result mapping
     for (let item in this.paymentArray) {
 
@@ -82,24 +83,30 @@ export class MainTableComponent implements OnInit {
     this.costResult.forEach((value, key) => {
       let newKey = key.split('-')[0];
       // If key does not exist, where key is the name of the payer then add the name and the array
-      if (this.finalCostResult.get(key) === undefined) {
-        console.log("undefined:", this.finalCostResult.get(key));
+      if (this.finalCostResult.get(newKey) === undefined) {
         this.finalCostResult.set(newKey, value);
       }
+      
       else {
-        console.log("in here now");
+        // Loop through arrays (debtorName, moneyOwed), try to find matching names, and update the final array
         for (let oldDebtorItem in value) {
-          for (let finalDebtorItem in finalDebtorInfo) {
-            console.log("old:", value[oldDebtorItem].debtorName);
-            console.log("new:", finalDebtorInfo[finalDebtorItem].debtorName);
-            if (value[oldDebtorItem].debtorName === finalDebtorInfo[finalDebtorItem].debtorName) {
-              console.log("HELLO WE GOT A MATCH");
+          let newDebtorArray = this.finalCostResult.get(newKey);
+          for (let finalDebtorItem in newDebtorArray) {
+            if (value[oldDebtorItem].debtorName === newDebtorArray[finalDebtorItem].debtorName) {
+              // Fix this later, can make into a couple lines code
+              let oldCost = value[oldDebtorItem].moneyOwed;
+              let newCost = oldCost + newDebtorArray[finalDebtorItem].moneyOwed;
+              newDebtorArray[finalDebtorItem].moneyOwed = newCost;
+              console.log("old cost is:", oldCost);
+              console.log("new cost is:", newCost);
             }
           }
+
+          this.finalCostResult.set(newKey, newDebtorArray);
         }
-        //this.finalCostResult.set(newKey, )
+
+        
       }
-      console.log(key.split('-')[0]);
     });
 
     console.log("final:", this.finalCostResult);
