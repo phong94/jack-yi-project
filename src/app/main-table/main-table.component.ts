@@ -58,16 +58,21 @@ export class MainTableComponent implements OnInit {
       let currentPayer = this.paymentArray[item].payer;
       let currentItem = this.paymentArray[item].item;
       let debtorInfo: Array<DebtorInfo> = new Array<DebtorInfo>();
-
+      console.log("INITIAL DEBTORINFO:", debtorInfo);
       // Loop through all the payees in the payment array
       for (let payee in this.paymentArray[item].payees) {
-
+        //console.log("item is", item);
         let debtorName = this.paymentArray[item].payees[payee];
         let totalPrice = this.paymentArray[item].price;
         let numUsers = this.paymentArray[item].payees.length;
         //console.log("Payees array:", this.paymentArray[item]);
         // Create an array of debtor info with debtor name and money owed
-        debtorInfo.push(new DebtorInfo(debtorName, totalPrice/numUsers));
+        console.log(`debtor name is ${debtorName}, total price is ${totalPrice} and numUsers is ${numUsers}`);
+        //console.log("total price is:", totalPrice);
+        let debtorItem = new DebtorInfo(debtorName, (totalPrice/numUsers));
+        console.log(debtorItem);
+        debtorInfo.push(debtorItem);
+        console.log("debtorInfo array after push:", debtorInfo, debtorInfo.length);
       }
       
       // Add each debtorInfo array to the costResult map along with the payer
@@ -77,7 +82,7 @@ export class MainTableComponent implements OnInit {
     //console.log(this.costResult);
 
     // Loop through map to reformat so that each payer is a key
-    console.log(this.costResult.entries());
+    console.log("initial cost result", this.costResult.entries());
     let finalDebtorInfo: Array<DebtorInfo> = new Array<DebtorInfo>();
 
     this.costResult.forEach((value, key) => {
@@ -97,8 +102,8 @@ export class MainTableComponent implements OnInit {
               let oldCost = value[oldDebtorItem].moneyOwed;
               let newCost = oldCost + newDebtorArray[finalDebtorItem].moneyOwed;
               newDebtorArray[finalDebtorItem].moneyOwed = newCost;
-              console.log("old cost is:", oldCost);
-              console.log("new cost is:", newCost);
+              // console.log("old cost is:", oldCost);
+              // console.log("new cost is:", newCost);
             }
           }
 
