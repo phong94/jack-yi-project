@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UsersModal } from '../users-modal/users-modal.component';
 import { PaymentModal } from '../payment-modal/payment-modal.component';
+import { CostResultsModal } from '../cost-results-modal/cost-results-modal.component';
 
 import { UserService } from '../services/user.service';
 
@@ -48,6 +49,12 @@ export class MainTableComponent implements OnInit {
 
   openAddPaymentRowModal() {
     const modalRef = this.modalService.open(PaymentModal, {size: "lg"});
+  }
+
+  openCostResultsModal() {
+    this.calculateCosts();
+    const modalRef = this.modalService.open(CostResultsModal, {size: "lg"});
+    modalRef.componentInstance.costResult = this.finalCostResult;
   }
 
   calculateCosts() {
@@ -109,12 +116,8 @@ export class MainTableComponent implements OnInit {
 
           this.finalCostResult.set(newKey, newDebtorArray);
         }
-
-        
       }
     });
-
-    console.log("final:", this.finalCostResult);
   }
 
   addUser(user, payer, item) {

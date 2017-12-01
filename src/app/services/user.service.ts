@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { PaymentInfo } from '../models/paymentinfo';
+import { DebtorInfo } from '../models/debtorinfo';
 
 @Injectable()
 export class UserService {
@@ -8,4 +9,5 @@ export class UserService {
     @Output() paymentArray = new EventEmitter<PaymentInfo[]>();
     currUserArray: string[] = [];
     currPaymentArray: PaymentInfo[] = [];
+    @Output() finalCostResult = new EventEmitter<Map<String, DebtorInfo[]>>();
 }
