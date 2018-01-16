@@ -5,20 +5,12 @@ import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { MainTableComponent } from './main-table/main-table.component';
-import { UsersModal } from './users-modal/users-modal.component';
-import { PaymentModal } from './payment-modal/payment-modal.component';
-import { CostResultsModal } from './cost-results-modal/cost-results-modal.component';
-
-import { UserService } from './services/user.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainTableComponent,
-    UsersModal,
-    PaymentModal,
-    CostResultsModal
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +18,7 @@ import { UserService } from './services/user.service';
     HttpModule,
     NgbModule.forRoot()
   ],
-  providers: [UserService],
-  bootstrap: [AppComponent],
-  entryComponents: [UsersModal, PaymentModal, CostResultsModal]
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
