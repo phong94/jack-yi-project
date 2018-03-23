@@ -36,7 +36,7 @@ export class MediaComponent implements OnInit {
 
         console.log(`width is ${this.width}`);
 
-        this.images.push(logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10);
+        this.images.push(logo1, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10, logo2);
     }
 
 }

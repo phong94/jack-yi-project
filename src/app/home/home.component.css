@@ -14,3 +14,12 @@ table {
 td {
     width: 50%;
 }
+
+.card {
+    /* box-shadow: 0 0 15px rgba(0,0,0,0.26); */
+    background-color: #252A30;
+}
+
+.card-body {
+    color: white;
+}
