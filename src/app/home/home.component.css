@@ -2,6 +2,10 @@ h3 {
     text-align: center;
 }
 
+p {
+  color: 9F9E9F;
+}
+
 .logo {
     width: 100px;
     height: 100px;
@@ -16,10 +20,37 @@ td {
 }
 
 .card {
-    /* box-shadow: 0 0 15px rgba(0,0,0,0.26); */
-    background-color: #252A30;
+    box-shadow: 0 0 15px rgba(0,0,0,0.26);
+    /* box-shadow: 0 5px 5px 0 rgba(0,0,0,0.26); */
+    background-color: #FFFEFF;
+    max-height: 700px;
+    overflow-y: auto;
 }
 
 .card-body {
-    color: white;
+    color: rgb(124, 124, 124);
+}
+
+.card-title {
+  color: rgb(94, 94, 94);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

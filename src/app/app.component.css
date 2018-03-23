@@ -6,7 +6,15 @@
 
 a {color: white;}
 
+a:hover {
+  color: #ff5131;
+}
+
 .navbar-custom {
-    background-color: #252A30;
-    
+    background-color: #626163;
+
+}
+
+hr {
+  background-color: #ff5131;
 }
