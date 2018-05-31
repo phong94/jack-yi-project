@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 @Component({
   selector: 'media',
   templateUrl: './media.component.html',
-  styleUrls: ['./media.component.css']
+  styleUrls: ['./media.component.scss']
 })
 export class MediaComponent implements OnInit {
 
