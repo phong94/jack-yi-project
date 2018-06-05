@@ -11,7 +11,7 @@ export class MediaComponent implements OnInit {
     width: number = window.innerWidth;
 
     lagunaseca = '/assets/IMG_60531.jpg';
-
+    logo = '/assets/RsDayKA.eps';
     constructor() {
         const resizeEvent = Observable.fromEvent(window, 'resize').map(() => {
             return document.documentElement.clientWidth;
