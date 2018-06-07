@@ -1,21 +1,13 @@
 
-.header {
-  top: 0px;
-  position: fixed;
-  width: 100%;
-  overflow: hidden;
+.navbar-custom {
   font-family: 'Concert One', sans-serif !important;
-}
-.top-content {
-  height: 40px;
-  // background-color: #626163;
-  background: linear-gradient(to right, #626163, rgb(150, 149, 149));
 }
 
 .main {
   background-image: url("../assets/car.jpg");
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.795);
+  margin-top: 140px; // make space for the fixed navbar
 }
 
 // .navbar-custom {
