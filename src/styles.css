@@ -4,7 +4,12 @@
 
 body {
   background-color: #EEEDEF !important;
+  height: 100%;
   /* font-family: 'Concert One', sans-serif !important; */
+}
+
+html {
+  height: 100%;
 }
 
 
