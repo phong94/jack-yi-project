@@ -1,19 +1,34 @@
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container">
+<div class="header">
+    <!-- <div class="top-content"></div> -->
 
-        <ul class="mx-auto navbar-nav" routerLinkActive="active">
-            <li class="nav-item pull-left logo"><img src="../assets/RsDay_small.png"></li>
-            <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="media">Media</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="register">Register</a></li>
-        </ul>
-    </div>
-</nav>
-<br>
+    <nav class="navbar navbar-expand-lg navbar-custom">
 
-<div class="container">
-    <hr><br>
+        <div class="container">
+            <img class="logo" src="../assets/RsDay.png">
+
+            <div class="logo-text">
+                    <div class="logo-main">R'S DAY</div>
+                    <div class="logo-sub">CELEBRATE ALL THINGS SKYLINE</div>
+                </div>
+
+            <ul class="mx-auto navbar-nav" routerLinkActive="active">
+                <li class="nav-item"><a class="nav-link" routerLink="home">HOME</a></li>
+                <li class="nav-item nav-link">/</li>
+                <li class="nav-item"><a class="nav-link" routerLink="media">MEDIA</a></li>
+                <li class="nav-item nav-link">/</li>
+                <li class="nav-item"><a class="nav-link" routerLink="register">REGISTER</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="main" style="margin-top: 170px;">
+  <div class="container">
+    <!-- <hr> -->
+    <br>
     <router-outlet></router-outlet>
-    <br><hr>
+    <br>
+    <!-- <hr> -->
+  </div>
 </div>
 
