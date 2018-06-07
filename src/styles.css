@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Archivo');
+@import url('https://fonts.googleapis.com/css?family=Concert+One');
+
 body {
   background-color: #EEEDEF !important;
+  font-family: 'Concert One', sans-serif !important;
 }
+
+

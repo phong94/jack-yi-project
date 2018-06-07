@@ -1,20 +1,49 @@
+
+.header {
+  top: 0px;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+.top-content {
+  height: 40px;
+  // background-color: #626163;
+  background: linear-gradient(to right, #626163, rgb(150, 149, 149));
+}
+
+// .navbar-custom {
+//   position:fixed;
+//   top: 0;
+// }
+
 .nav-item {
-    font-size: 20px;
+    font-size: 30px;
     padding-left: 40px;
     padding-right: 40px;
 }
 
-a {color: white;}
+a {
+  color: #626163;
+}
 
 a:hover {
   color: #ff5131;
 }
 
-.navbar-custom {
-    background-color: #626163;
-
-}
-
 hr {
   background-color: #ff5131;
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+  padding-right: 20px;
+}
+
+.logo-main {
+  font-size: 40px;
+}
+
+.logo-sub {
+  font-size: 15 px;
 }
