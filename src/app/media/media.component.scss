@@ -3,9 +3,23 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    height:100%;
+    height: 200px;
 }
 
-.card {
+.media-box {
   box-shadow: 0 0 15px rgba(0,0,0,0.26);
+  opacity: .9;
 }
+
+.card-header {
+  text-align: center;
+}
+
+.media-item {
+  background-color: rgb(235, 235, 235);
+  margin-top: 25px;
+}
+
+
+
+
