@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  isNavbarCollapsed = true;
   constructor(private router: Router) {}
 
   goHome() {

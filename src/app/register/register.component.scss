@@ -1,1 +1,29 @@
 
+@media only screen and (min-width: 771px) {
+  .registration {
+    width: 650px;
+    height: 750px;
+}
+}
+// 770px wide or less
+@media only screen and (max-width: 770px) {
+  .registration {
+      width: 525px;
+      height: 750px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .registration {
+      width: 350px;
+      height: 750px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .registration {
+      width: 300px;
+      height: 750px;
+  }
+}
+

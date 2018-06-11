@@ -5,6 +5,7 @@
 body {
   background-color: #EEEDEF !important;
   height: 100%;
+  overflow-x: hidden !important;
   /* font-family: 'Concert One', sans-serif !important; */
 }
 
