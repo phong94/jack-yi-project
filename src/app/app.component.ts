@@ -18,7 +18,11 @@ export class AppComponent {
     this.router.navigate['media'];
   }
 
-  goRegister() {
-    this.router.navigate['register'];
+  // goRegister() {
+  //   this.router.navigate['register'];
+  // }
+
+  onNavigateToRegister() {
+    window.open("https://www.speedventures.com/events/eventdetail.mobile.aspx?id=736", "_blank");
   }
 }
